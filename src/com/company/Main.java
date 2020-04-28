@@ -9,7 +9,7 @@ public class Main {
         System.out.println("\t\t\tMeniu");
         System.out.println("\t\t\t1 - Add");
         System.out.println("\t\t\t2 - View");
-        System.out.println("\t\t\t3 - Cumparare6");
+        System.out.println("\t\t\t3 - Cumparare");
         System.out.println("\t\t\t4 - Profit");
         System.out.println("\t\t\t5 - Sort");
         System.out.println("\t\t\t6 - Exit");
