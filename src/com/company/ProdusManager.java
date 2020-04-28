@@ -70,4 +70,17 @@ public class ProdusManager {
         }
         return id;
     }
+
+    public void addToAList(ArrayList produsList,ArrayList produsList2,int id){
+        Produse produs = (Produse) produsList.get(id);
+        produsList2.add(produs);
+    }
+    public double calcProfit(ArrayList produsList){
+        double profit = 0;
+        for (int i = 0;i< produsList.size();i++) {
+            Produse produs = (Produse) produsList.get(i);
+            profit += (produs.getPretVanzare() - produs.getPretAchizitie());
+        }
+        return profit;
+    }
 }

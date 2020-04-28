@@ -9,9 +9,10 @@ public class Main {
         System.out.println("\t\t\tMeniu");
         System.out.println("\t\t\t1 - Add");
         System.out.println("\t\t\t2 - View");
-        System.out.println("\t\t\t3 - Delete");
-        System.out.println("\t\t\t4 - Sort");
-        System.out.println("\t\t\t5 - Exit");
+        System.out.println("\t\t\t3 - Cumparare6");
+        System.out.println("\t\t\t4 - Profit");
+        System.out.println("\t\t\t5 - Sort");
+        System.out.println("\t\t\t6 - Exit");
     }
     public static void sort(ProdusManager produsManager,ArrayList produsList){
 
@@ -55,7 +56,7 @@ public class Main {
                     break;
                 }
                 default: {
-                    System.out.println("Enter 1|2|3 only");
+                    System.out.println("Enter 1|2|3|4 only");
                 }
             }
         }while (finish != 1);
@@ -63,6 +64,7 @@ public class Main {
     public static void main(String[] args) {
         ProdusManager produsManager = new ProdusManager();
         ArrayList produsList = new ArrayList();
+        ArrayList  produsListaVandute = new ArrayList();
         Scanner scan = new Scanner(System.in);
         byte finish = 0;
         char input;
@@ -96,12 +98,13 @@ public class Main {
                         break;
                     }
                     case '3': {
-                        System.out.println("Delete");
+                        System.out.println("Cumparare produs");
                         System.out.println("Enter nume: ");
                         scan.nextLine();
-                        String pNume = scan.nextLine();
-                        int id = produsManager.searchName(produsList,pNume);
+                        String pnume = scan.nextLine();
+                        int id = produsManager.searchName(produsList,pnume);
                         if(id != -1) {
+                            produsManager.addToAList(produsList,produsListaVandute,id);
                             produsManager.delete(produsList, id);
                         }
                         else{
@@ -110,11 +113,18 @@ public class Main {
                         break;
                     }
                     case '4': {
+                        System.out.println("Calcul profit");
+                        double profit = produsManager.calcProfit(produsListaVandute);
+                        System.out.println("Profitul = "+ profit);
+                        break;
+                    }
+                    case '5': {
                         System.out.println("Sort");
                         sort(produsManager,produsList);
                         break;
                     }
-                    case '5': {
+
+                    case '6': {
                         System.out.println("Exit");
                         finish = 1;
                         break;
